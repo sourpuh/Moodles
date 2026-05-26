@@ -462,10 +462,10 @@ public unsafe class CommonProcessor : IDisposable
 
     public string GetTimerText(long rem)
     {
-        var seconds = MathF.Ceiling((float)rem / 1000f);
+        var seconds = MathF.Round((float)rem / 1000f);
         if (seconds <= 59) return seconds.ToString();
         var minutes = MathF.Floor((float)seconds / 60f);
-        if (minutes <= 59) return $"{minutes}m";
+        if (minutes <= 59) return $"{minutes}";
         var hours = MathF.Floor((float)minutes / 60f);
         if (hours <= 59) return $"{hours}h";
         var days = MathF.Floor((float)hours / 24f);
